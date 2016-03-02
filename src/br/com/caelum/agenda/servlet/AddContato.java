@@ -1,4 +1,4 @@
-package br.com.caelum.servlet;
+package br.com.caelum.agenda.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.caelum.agenda.dao.ContatoDao;
+import br.com.caelum.agenda.model.Contato;
 
 @WebServlet(name="new-contato", urlPatterns="/add-contato")
 public class AddContato extends HttpServlet{
@@ -28,13 +31,13 @@ public class AddContato extends HttpServlet{
 		}
 		Calendar nascimento = Calendar.getInstance();
 		nascimento.setTime(date);
-		
-		PrintWriter out = resp.getWriter();
-		out.println("<p>Nome: " + nome + "</p>");
-		out.println("<p>Email: " + email + "</p>");
-		out.println("<p>Endereço: " + endereco + "</p>");
-		out.println("<p>Nascimento: " + nascimento + "</p>");
-		
+		Contato c = new Contato();
+		c.setNome(nome);
+		c.setEmail(email);
+		c.setEndereco(endereco);
+		c.setDataNascimento(nascimento);
+		ContatoDao dao = new ContatoDao();
+		dao.insert(c);
 	}
 
 }
