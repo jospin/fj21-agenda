@@ -11,7 +11,7 @@
 <body>
 <jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao" />
 <jsp:useBean id="date" class="br.com.caelum.agenda.dao.ContatoDao" />
-<h1>Contatos</h1>
+<h1>Agenda de contatos curso FJ-21</h1>
 <table>
 	<tr>
 		<tbody>
