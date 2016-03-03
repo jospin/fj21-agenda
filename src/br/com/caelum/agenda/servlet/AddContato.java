@@ -19,6 +19,11 @@ import br.com.caelum.agenda.model.Contato;
 @WebServlet(name="new-contato", urlPatterns="/add-contato")
 public class AddContato extends HttpServlet{
 	@Override
+	public void init() throws ServletException {
+		super.init();
+		log("Iniciando a servlet");
+	}
+	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
 		String email = req.getParameter("email");
@@ -38,6 +43,15 @@ public class AddContato extends HttpServlet{
 		c.setDataNascimento(nascimento);
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
+		
+		PrintWriter out = resp.getWriter();
+		out.println("Contato " + c.getNome() + " Adicionado com sucesso");
+	}
+	
+	@Override
+	public void destroy() {
+		super.destroy();
+		log("Finalizando a Servlet");
 	}
 
 }
