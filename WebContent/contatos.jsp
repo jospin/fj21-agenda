@@ -5,12 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:import url="imports/head.jsp" />
+	<c:import url="imports/head.jsp" />
 	<title>Contatos da Agenda</title>
 </head>
 <body>
 <jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao" />
-<jsp:useBean id="date" class="br.com.caelum.agenda.dao.ContatoDao" />
 <c:import url="imports/cabecalho.jsp" />
 <table class="table table-colapse table-striped table-hover">
 	<tr>
