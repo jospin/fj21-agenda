@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 				<label>E-mail: &nbsp;</label><input type="text" name="email" />
 			</p>
 			<p>
-				<label>Endereço: &nbsp;</label><input type="text" name="endereco" />
+				<label>EndereÃ§o: &nbsp;</label><input type="text" name="endereco" />
 			</p>
 			<p>
 				<label>Data Nascimento: &nbsp;</label><input type="text"
