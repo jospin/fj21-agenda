@@ -7,11 +7,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.connector.Request;
 
 import br.com.caelum.agenda.dao.ContatoDao;
 import br.com.caelum.agenda.model.Contato;
@@ -44,8 +47,8 @@ public class AddContato extends HttpServlet{
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
 		
-		PrintWriter out = resp.getWriter();
-		out.println("Contato " + c.getNome() + " Adicionado com sucesso");
+		RequestDispatcher rd = req.getRequestDispatcher("/contato-adicionado.jsp");
+		rd.forward(req, resp);
 	}
 	
 	@Override
