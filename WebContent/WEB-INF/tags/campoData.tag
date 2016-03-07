@@ -2,10 +2,8 @@
 <%@ attribute name="tagfileName" required="true" %>
 <%@ attribute name="tagfileLabel" required="true" %>
 <%@ attribute name="tagfileId" %>
-<p>
-	<label> ${tagfileLabel}</label>
-	<input id="${tagfileId}" class="form-control" name="${tagfileName}" type="text" />
-</p>
+<label> ${tagfileLabel}</label>
+<input id="${tagfileId}" class="form-control" name="${tagfileName}" type="text" />
 <script type="text/javascript">
 	$("#${tagfileId}").datepicker();
 </script>

@@ -13,16 +13,19 @@
 	<form action="add-contato" method="post" >
 		<legend>Novo contato</legend>
 		<div class="form-group">
-			<label>Nome: &nbsp;</label>
-			<input class="form-control" type="text" placeholder="Nome" name="nome" />
+			<tagfile:campoText
+				tagfileName="nome"
+				tagfileLabel="Nome" />
 		</div>
 		<div class="form-group">
-			<label>E-mail: &nbsp;</label>
-			<input type="text" class="form-control" placeholder="teste@teste.com.br" name="email" />
+			<tagfile:campoText
+				tagfileName="email"
+				tagfileLabel="E-mail" />
 		</div>
 		<div class="form-group">
-			<label>Endereço: &nbsp;</label>
-			<input type="text" class="form-control" name="endereco" />
+			<tagfile:campoText
+				tagfileName="endereco"
+				tagfileLabel="Endereço" />
 		</div>
 		<div class="form-group">
 			<tagfile:campoData 

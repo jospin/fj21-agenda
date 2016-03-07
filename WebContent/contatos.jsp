@@ -10,10 +10,13 @@
 <title>Contatos da Agenda</title>
 </head>
 <body>
-<jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao" />
-<jsp:useBean id="date" class="br.com.caelum.agenda.dao.ContatoDao" />
 <core:import url="/imports/cabecalho.jsp" />
-<h3>Agenda de contatos curso FJ-21</h3>
+<h3>
+	Agenda de contatos curso FJ-21
+	<a style="float:right" href="add-contato.jsp" title="Novo contato">
+		<span class="glyphicon glyphicon-plus"></span>
+	</a> 
+</h3>
 <table class="table table-colapse table-striped table-hover">
 	<tr>
 		<tbody>
@@ -22,11 +25,12 @@
 			<th>Email</th>
 			<th>Endereço</th>
 			<th>Nascimento</th>
+			<th>Ação</th>
 		</tbody>
 	</tr>
 	<tr>
 		<tbody>
-			<core:forEach var="contato" items="${dao.lista}" varStatus="count">
+			<core:forEach var="contato" items="${contatos}" varStatus="count">
 				<tr class="${count.count % 2 == 0 ? 'active' : 'success'}">
 					<td>${contato.id}</td>
 					<td>${contato.nome}</td>
@@ -50,6 +54,11 @@
 					<td>${contato.endereco}</td>
 					<td><fmt:formatDate pattern="dd/MM/yyyy" 
 						value="${contato.dataNascimento.time}" />
+					</td>
+					<td>
+						<a href="mvc/?logica=RemoveContato&id=${contato.id}" title="Remove contato">
+							<span class="glyphicon glyphicon-remove"></span>
+						</a>
 					</td>
 				</tr>
 			</core:forEach>	
