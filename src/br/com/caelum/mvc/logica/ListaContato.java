@@ -1,5 +1,6 @@
 package br.com.caelum.mvc.logica;
 
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +13,11 @@ public class ListaContato implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		List<Contato> contatos = new ContatoDao().getLista();
+		Connection conn = (Connection) req.getAttribute("connection");
+		ContatoDao dao = new ContatoDao(conn);
+		List<Contato> contatos = dao.getLista();
 		req.setAttribute("contatos", contatos);
-		
+
 		return "/WEB-INF/jsp/contatos.jsp";
 	}
 
