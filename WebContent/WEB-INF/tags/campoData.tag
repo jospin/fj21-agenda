@@ -1,9 +1,11 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
-<%@ attribute name="id" required="true" %>
+<%@ attribute name="tagfileName" required="true" %>
+<%@ attribute name="tagfileLabel" required="true" %>
+<%@ attribute name="tagfileId" %>
 <p>
-	<label> Data Nascimento</label>
-	<input id="${id}" name="${id}" type="text" />
+	<label> ${tagfileLabel}</label>
+	<input id="${tagfileId}" class="form-control" name="${tagfileName}" type="text" />
 </p>
 <script type="text/javascript">
-	$("#${id}").datepicker();
+	$("#${tagfileId}").datepicker();
 </script>

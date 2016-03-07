@@ -18,7 +18,6 @@ public class ContatoDao {
 
 	public ContatoDao() {
 		this.conn = new ConnectionFactory().getConnection();
-
 	}
 
 	public void insert(Contato contato) {
@@ -103,8 +102,8 @@ public class ContatoDao {
 
 			while (rs.next()) {
 				Contato contato = new Contato();
-				contato.setNome(rs.getString("nome"));
 				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
 				contato.setEmail(rs.getString("email"));
 				contato.setEndereco(rs.getString("endereco"));
 

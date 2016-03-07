@@ -10,7 +10,7 @@
 </head>
 <body>
 	<c:import url="imports/cabecalho.jsp" />
-	<h1>MVC</h1>
+	<h1>Lógica de MVC</h1>
 	<c:import url="imports/rodape.jsp" />
 </body>
 </html>

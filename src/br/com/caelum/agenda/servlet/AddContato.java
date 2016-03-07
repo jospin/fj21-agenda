@@ -14,23 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.connector.Request;
-
 import br.com.caelum.agenda.dao.ContatoDao;
 import br.com.caelum.agenda.model.Contato;
 
 @WebServlet(name="new-contato", urlPatterns="/add-contato")
 public class AddContato extends HttpServlet{
 	@Override
-	public void init() throws ServletException {
-		super.init();
-		log("Iniciando a servlet");
-	}
-	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nome = req.getParameter("nome");
-		String email = req.getParameter("email");
-		String endereco = req.getParameter("endereco");
 		Date date;
 		try {
 			date = new SimpleDateFormat("dd/MM/yyy").parse(req.getParameter("nascimento"));
@@ -39,22 +29,17 @@ public class AddContato extends HttpServlet{
 		}
 		Calendar nascimento = Calendar.getInstance();
 		nascimento.setTime(date);
+		
 		Contato c = new Contato();
-		c.setNome(nome);
-		c.setEmail(email);
-		c.setEndereco(endereco);
+		c.setNome(req.getParameter("nome"));
+		c.setEmail(req.getParameter("email"));
+		c.setEndereco(req.getParameter("endereco"));
 		c.setDataNascimento(nascimento);
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/contato-adicionado.jsp");
 		rd.forward(req, resp);
-	}
-	
-	@Override
-	public void destroy() {
-		super.destroy();
-		log("Finalizando a Servlet");
 	}
 
 }

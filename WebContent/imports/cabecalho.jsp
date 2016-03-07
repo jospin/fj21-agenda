@@ -3,22 +3,3 @@
 <img src="${imagem}" />
 <h2 class="title">Agenda de Contatos do Lucien Jospin</h2>
 <hr />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

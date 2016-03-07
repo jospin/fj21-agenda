@@ -10,19 +10,26 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>Index</servlet-name>
-  	<servlet-class>br.com.caelum.servlet.BemVindo</servlet-class>
+  	<servlet-name>servletOiMundo</servlet-name>
+  	<servlet-class>
+  		br.com.caelum.servlet.OiMundo
+  	</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Index</servlet-name>
-  	<url-pattern>/index.html</url-pattern>
+  	<servlet-name>servletOiMundo</servlet-name>
+  	<url-pattern>/oi</url-pattern>
   </servlet-mapping>
   <error-page>
   	<error-code>404</error-code>
-  	<location>/erros/404.html</location>
+  	<location>/errors/404.html</location>    
   </error-page>
   <error-page>
   	<exception-type>java.lang.Exception</exception-type>
-  	<location>/erros/manutencao.html</location>
+  	<location>/errors/erro.html</location>
   </error-page>
+  <error-page>
+  	<exception-type>br.com.caelum.agenda.exception.DaoException</exception-type>
+  	<location>/errors/erro-dao.html</location>
+  </error-page>
+  
 </web-app>
