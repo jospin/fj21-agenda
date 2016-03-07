@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.caelum.agenda.dao.ContatoDao;
 import br.com.caelum.agenda.model.Contato;
 
-@WebServlet(name="new-contato", urlPatterns="/add-contato")
-public class AddContato extends HttpServlet{
+@WebServlet(name = "new-contato", urlPatterns = "/add-contato")
+public class AddContato extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Date date;
@@ -29,7 +29,7 @@ public class AddContato extends HttpServlet{
 		}
 		Calendar nascimento = Calendar.getInstance();
 		nascimento.setTime(date);
-		
+
 		Contato c = new Contato();
 		c.setNome(req.getParameter("nome"));
 		c.setEmail(req.getParameter("email"));
@@ -37,8 +37,8 @@ public class AddContato extends HttpServlet{
 		c.setDataNascimento(nascimento);
 		ContatoDao dao = new ContatoDao();
 		dao.insert(c);
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/contato-adicionado.jsp");
+
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/contato-adicionado.jsp");
 		rd.forward(req, resp);
 	}
 

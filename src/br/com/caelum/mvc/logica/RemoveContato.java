@@ -13,7 +13,7 @@ public class RemoveContato implements Logica {
 		long id =  Long.parseLong(req.getParameter("id"));
 		ContatoDao dao = new ContatoDao();
 		dao.delete(id);
-		return "contato-removido.jsp";
+		return "/WEB-INF/jsp/contato-removido.jsp";
 		
 	}
 

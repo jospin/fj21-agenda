@@ -56,7 +56,7 @@
 						value="${contato.dataNascimento.time}" />
 					</td>
 					<td>
-						<a href="mvc/?logica=RemoveContato&id=${contato.id}" title="Remove contato">
+						<a href="mvc?logica=RemoveContato&id=${contato.id}" title="Remove contato">
 							<span class="glyphicon glyphicon-remove"></span>
 						</a>
 					</td>
