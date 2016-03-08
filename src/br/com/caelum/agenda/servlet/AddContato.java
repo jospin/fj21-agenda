@@ -23,6 +23,7 @@ public class AddContato extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Date date;
+		Connection conn = (Connection) req.getAttribute("connection");
 		try {
 			date = new SimpleDateFormat("dd/MM/yyy").parse(req.getParameter("nascimento"));
 		} catch (ParseException e) {
@@ -30,8 +31,6 @@ public class AddContato extends HttpServlet {
 		}
 		Calendar nascimento = Calendar.getInstance();
 		nascimento.setTime(date);
-
-		Connection conn = (Connection) req.getAttribute("connection");
 
 		Contato c = new Contato();
 		c.setNome(req.getParameter("nome"));
@@ -41,7 +40,7 @@ public class AddContato extends HttpServlet {
 		ContatoDao dao = new ContatoDao(conn);
 		dao.insert(c);
 
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/contato-adicionado.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/contato-adicionado.jsp");
 		rd.forward(req, resp);
 	}
 

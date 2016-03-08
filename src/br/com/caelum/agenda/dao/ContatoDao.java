@@ -84,6 +84,15 @@ public class ContatoDao {
 			stmt.execute();
 
 			ResultSet rs = stmt.executeQuery();
+			rs.next();
+			c.setId(id);
+			c.setNome(rs.getString("nome"));
+			c.setEmail(rs.getString("email"));
+			c.setEndereco(rs.getString("endereco"));
+
+			Calendar data = Calendar.getInstance();
+			data.setTime(rs.getDate("dataNascimento"));
+			c.setDataNascimento(data);
 
 		} catch (SQLException e) {
 			throw new DaoException("getContato");

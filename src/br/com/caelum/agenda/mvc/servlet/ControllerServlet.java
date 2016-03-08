@@ -17,14 +17,14 @@ import br.com.caelum.mvc.logica.Logica;
 public class ControllerServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		String parametros = req.getParameter("logica");
-		String nomeDaClasse = "br.com.caelum.mvc.logica."+parametros;
-		try{
+		String nomeDaClasse = "br.com.caelum.mvc.logica." + parametros;
+		try {
 			Class classe = Class.forName(nomeDaClasse);
 			Logica logica = (Logica) classe.newInstance();
 			String pagina = logica.executa(req, resp);
-			
+
 			req.getRequestDispatcher(pagina).forward(req, resp);
 		} catch (Exception e) {
 			throw new ServletException(e);

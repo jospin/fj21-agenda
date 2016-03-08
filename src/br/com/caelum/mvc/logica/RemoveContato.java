@@ -16,8 +16,7 @@ public class RemoveContato implements Logica {
 		Connection conn = (Connection) req.getAttribute("connection");
 		ContatoDao dao = new ContatoDao(conn);
 		dao.delete(id);
-		return "/WEB-INF/jsp/contato-removido.jsp";
-
+		return "/WEB-INF/jsp/contato-removido.jsp";		
 	}
 
 }

@@ -24,19 +24,17 @@ public class FiltroTempoDeExecucao implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		long tempoInicial = System.currentTimeMillis();
-		
+
 		chain.doFilter(req, resp);
-		
+
 		long tempoFinal = System.currentTimeMillis();
-		String uri = ((HttpServletRequest) req).getRequestURI();
-		String parametros = ((HttpServletRequest) req).getParameter("logica");
-		
-		String message = "Tempo da requisição de "
-				+ uri
-				+ " ?logica=" + parametros + "demorou (ms)"
-				+ (tempoFinal - tempoInicial);
-		System.out.println(message);
-		
+		long ini = System.currentTimeMillis();
+		String url = ((HttpServletRequest) req).getRequestURI();
+		chain.doFilter(req, resp);
+		long fim = System.currentTimeMillis();
+		long tempo = (fim - ini);
+		System.out.println("Tempo de execução: " + url + " - " + tempo);
+
 	}
 
 	@Override
